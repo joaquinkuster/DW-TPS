@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es"> <!-- lang define el idioma del documento -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ejemplo de estructura HTML base">
+  <meta name="author" content="Küster Joaquín">
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <nav class="menu-principal" title="Navegación principal"> <!-- class permite aplicar estilos y reutilizar -->
+      <ul>
+        <li><a href="#seccion">Sección</a></li>
+        <li><a href="#articulo">Artículo</a></li>
+        <li><a href="#info-complementaria">Información complementaria</a></li>
+        <li><a href="#tabla">Tabla</a></li>
+        <li><a href="#lista">Lista no ordenada</a></li>
+        <li><a href="https://pixabay.com/es/" target="_blank">Pixabay</a></li>
+        <li><a href="https://www.youtube.com/" target="_blank">YouTube</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="seccion" style="background-color: #f0f0f0;"> <!-- style aplica estilos en línea -->
+      <h2>Sección</h2> 
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, quas.</p>
+      <img src="https://cdn.pixabay.com/photo/2023/01/08/09/34/jellyfish-7704801_1280.jpg"
+           alt="Imagen de ejemplo"
+           title="Imagen de ejemplo" /> <!-- title muestra texto al pasar el mouse -->
+    </section>
+
+    <article id="articulo" class="articulo">
+      <!-- class puede usarse para resaltar artículos -->
+      <h3>Artículo</h3>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt, laboriosam!</p>
+    </article>
+
+    <aside id="info-complementaria" style="color: gray;">
+      <!-- style cambia el color del texto directamente -->
+      <h3>Información complementaria</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, temporibus?</p>
+    </aside>
+
+    <section id="tabla">
+      <h3>Tabla</h3>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Columna 1</th>
+            <th>Columna 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr align="center"> <!-- align está obsoleto, antes centraba el contenido -->
+            <td>Fila 1</td>
+            <td>--</td>
+          </tr>
+          <tr align="center"> <!-- se recomienda usar CSS para esto -->
+            <td>Fila 2</td>
+            <td>--</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="lista">
+      <h3>Lista no ordenada</h3>
+      <ul class="lista" title="Lista de ejemplo"> <!-- class y title para estilos e info -->
+        <li>Ítem 1</li>
+        <li>Ítem 2</li>
+        <li>Ítem 3</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p id="pie" style="text-align:center;">© 2025 Mi Sitio Web</p> <!-- style alinea el texto -->
+  </footer>
+</body>
+
+</html>

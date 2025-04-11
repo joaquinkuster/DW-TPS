@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es"> <!-- Atributo global: lang -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café Aromas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    header, footer, section, article {
+      padding: 20px;
+    }
+
+    nav ul {
+      background-color: #4b2e2e;
+      padding: 10px;
+      list-style: none;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #f2f2f2;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header id="inicio" title="Encabezado principal de la tienda"> <!-- Etiqueta semántica + 2 atributos globales -->
+    <h1>Café Aromas</h1>
+    <p>El mejor café artesanal</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#precios">Precios</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="productos">
+      <h2>Nuestros Productos</h2>
+      <article class="producto"> <!-- Etiqueta semántica -->
+        <h3>Café en grano</h3>
+        <p>Ideal para moler en casa y disfrutar de un sabor intenso.</p>
+        <img src="https://cdn.pixabay.com/photo/2020/04/23/13/35/coffee-5082544_1280.jpg"
+             alt="Bolsa de café en grano" 
+             style="width: 300px;"> <!-- Atributo global style -->
+      </article>
+    </section>
+
+    <section id="precios">
+      <h2>Tabla de Precios</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Café en grano 250g</td>
+            <td>$1.500</td>
+          </tr>
+          <tr>
+            <td>Café molido 500g</td>
+            <td>$2.800</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="nosotros">
+      <h2>Sobre Nosotros</h2>
+      <p>Café Aromas nació en 2020 con el sueño de llevar el mejor café artesanal a cada hogar.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Café Aromas - Todos los derechos reservados</p>
+  </footer>
+</body>
+
+</html>
