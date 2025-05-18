@@ -2,64 +2,170 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GA - 2025 DW - TP 03 - JS</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/estilos.css">
+  <!-- Metadatos básicos -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Café Aromas - El mejor café artesanal del pueblo">
+  <title>Café Aromas - Cafetería Artesanal</title>
+
+  <!-- Vincular hoja de estilos externa -->
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
-    <div class="container mt-5">
-        <h1 class="mb-4">GA - 2025 DW - TP 03 - JS</h1>
-
-        <!-- Formulario con campos de contacto -->
-        <h2 class="h4 mb-3">Formulario de contacto</h2>
-        <form id="contactoForm" class="mb-5">
-            <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" class="form-control" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="email" class="form-label">Correo electrónico:</label>
-                <input type="email" id="email" name="email" class="form-control" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="asunto" class="form-label">Asunto:</label>
-                <select id="asunto" name="asunto" class="form-select">
-                    <option value="soporte">Soporte</option>
-                    <option value="ventas">Ventas</option>
-                    <option value="otros">Otros</option>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="mensaje" class="form-label">Mensaje:</label>
-                <textarea id="mensaje" name="mensaje" class="form-control" rows="4" required></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
-
-        <h2 class="h5 mb-3">Manipulación del DOM</h2>
-
-        <!-- Contador de caracteres -->
-        <div class="mb-3">
-            <label for="textoContar" class="form-label">Escribe algo:</label>
-            <textarea id="textoContar" class="form-control" rows="4"></textarea>
-            <p class="text-muted" id="contador">0 caracteres</p>
-        </div>
-
-        <!-- Caja interactiva -->
-        <div class="caja border rounded" id="miCaja"></div>
+  <!-- Header con logo y título principal -->
+  <header>
+    <img src="img/logo.png" alt="Logo Café Aromas">
+    <div>
+      <h1>Café Aromas</h1>
+      <p>Café artesanal con alma</p>
     </div>
+  </header>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script>
+  <!-- Barra de navegación con enlaces internos -->
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#menu">Menú</a>
+    <a href="#blog">Blog</a>
+    <a href="#contacto">Contacto</a>
+    <a href="https://es.wikipedia.org/wiki/Caf%C3%A9" target="_blank">Sobre el café</a>
+  </nav>
+
+  <!-- Contenedor principal -->
+  <div class="contenedor-principal">
+    <!-- Contenido principal -->
+    <main class="contenido-principal">
+
+      <!-- Artículo destacado sobre nosotros -->
+      <section id="nosotros" class="seccion">
+        <article>
+          <h2>Bienvenidos a Café Aromas</h2>
+          <p>En Café Aromas, creemos que preparar café es una forma de arte. Desde la selección de los granos hasta el
+            servicio final, cada paso es crucial para crear la taza perfecta.</p>
+          <p>Nuestros baristas están entrenados en las técnicas más modernas, pero también respetamos las tradiciones
+            centenarias de preparación de café. Cada bebida que servimos es una expresión de nuestro compromiso con la
+            calidad.</p>
+          <p>¿Sabías que la temperatura del agua afecta significativamente la extracción de sabores? Utilizamos
+            termómetros digitales para asegurar que cada taza esté perfectamente preparada.</p>
+          <div class="mt-20 mb-20">
+            <img src="https://cdn.pixabay.com/photo/2016/08/07/16/23/coffee-1576537_1280.jpg" alt="Café artesanal"
+              class="img-responsive">
+          </div>
+        </article>
+      </section>
+
+      <!-- Sección del menú -->
+      <section id="menu" class="seccion">
+        <h2>Nuestro Menú</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Descripción</th>
+              <th>Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Espresso</td>
+              <td>Café concentrado con crema dorada</td>
+              <td>$120</td>
+            </tr>
+            <tr>
+              <td>Cappuccino</td>
+              <td>Espresso con leche vaporizada y espuma</td>
+              <td>$150</td>
+            </tr>
+            <tr>
+              <td>Latte</td>
+              <td>Espresso con más leche y poca espuma</td>
+              <td>$160</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Lista de especialidades -->
+        <h3>Nuestras especialidades</h3>
+        <ul class="especialidades">
+          <li>Café de origen único (selección rotativa)</li>
+          <li>Cold brew artesanal</li>
+          <li>Matcha latte premium</li>
+          <li>Chai latte especiado</li>
+          <li>Postres caseros diarios</li>
+        </ul>
+      </section>
+
+      <!-- Sección sobre el café -->
+      <section id="arte-del-cafe" class="seccion">
+        <h2>El Arte del Café: Nuestra Pasión</h2>
+        <p>Somos una cafetería artesanal dedicada a ofrecer la mejor experiencia de café en la ciudad. Nuestros granos
+          son seleccionados cuidadosamente y tostados localmente para garantizar frescura y calidad.</p>
+        <div class="mt-20 mb-20">
+          <img src="https://cdn.pixabay.com/photo/2021/01/08/06/32/cafe-5899078_1280.jpg" alt="Sucursal Café Aromas"
+            class="img-responsive">
+        </div>
+      </section>
+
+      <!-- Formulario de contacto -->
+      <section id="formulario" class="seccion">
+        <h2>Formulario de contacto</h2>
+        <form id="contactoForm">
+          <div class="mb-20">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+          <div class="mb-20">
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="mb-20">
+            <label for="asunto">Asunto:</label>
+            <select id="asunto" name="asunto">
+              <option value="soporte">Soporte</option>
+              <option value="ventas">Ventas</option>
+              <option value="otros">Otros</option>
+            </select>
+          </div>
+          <div class="mb-20">
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+            <p id="contador">0 caracteres</p>
+          </div>
+          <button type="submit" class="btn-submit">Enviar</button>
+        </form>
+      </section>
+
+      <!-- Caja interactiva -->
+      <section id="caja-interactiva" class="seccion">
+        <h2>Desliza el cursor sobre la caja!</h2>
+        <div class="caja" id="miCaja"></div>
+      </section>
+
+    </main>
+
+    <!-- Barra lateral -->
+    <aside id="horarios">
+      <h3>Horario de atención</h3>
+      <p><strong>Lunes a Viernes:</strong> 7:00 - 20:00</p>
+      <p><strong>Sábados:</strong> 8:00 - 22:00</p>
+      <p><strong>Domingos:</strong> 9:00 - 18:00</p>
+    </aside>
+  </div>
+
+  <!-- Pie de página -->
+  <footer id="pie">
+    <h3>Contacto</h3>
+    <p>Dirección: Calle Uquiza 123, Centro</p>
+    <p>Teléfono: (555) 123-4567</p>
+    <p>Email: info@cafearomas.com</p>
+    <p>&copy; 2023 Café Aromas - Todos los derechos reservados</p>
+    <p class="mt-20">
+      <a href="#inicio" title="Volver al inicio">Volver al inicio ↑</a>
+    </p>
+  </footer>
+
+  <!-- Vincular script externo -->
+  <script src="js/main.js"></script>
 </body>
 
 </html>

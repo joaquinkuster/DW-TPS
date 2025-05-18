@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Contador de caracteres
-    const textoContar = document.getElementById('textoContar');
+    const textoContar = document.getElementById('mensaje');
     const contador = document.getElementById('contador');
     textoContar.addEventListener('input', () => {
         const longitud = textoContar.value.length;
