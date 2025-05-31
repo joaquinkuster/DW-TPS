@@ -1,39 +1,33 @@
 <?php
+
+$errores = [];
+$respuesta = "";
+$nombre = $email = $asunto = $mensaje = "";
+
 // Validar que el formulario se envió por POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
   // Recoger y sanitizar datos
-  $nombre  = isset($_POST['nombre']) ? trim($_POST['nombre']) : '';
-  $email   = isset($_POST['email'])  ? trim($_POST['email'])  : '';
-  $asunto  = isset($_POST['asunto']) ? trim($_POST['asunto']) : '';
+  $nombre = isset($_POST['nombre']) ? trim($_POST['nombre']) : '';
+  $email = isset($_POST['email']) ? trim($_POST['email']) : '';
+  $asunto = isset($_POST['asunto']) ? trim($_POST['asunto']) : '';
   $mensaje = isset($_POST['mensaje']) ? trim($_POST['mensaje']) : '';
 
-  $errors = [];
-
   // Validaciones
-  if ($nombre === '') {
-    $errors[] = "El nombre es obligatorio.";
+  if (empty($nombre)) {
+    $errores[] = "El nombre es obligatorio.";
   }
-  if ($email === '') {
-    $errors[] = "El correo electrónico es obligatorio.";
+  if (empty($email)) {
+    $errores[] = "El correo electrónico es obligatorio.";
   } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $errors[] = "El correo electrónico no es válido.";
+    $errores[] = "El correo electrónico no es válido.";
   }
-  if ($mensaje === '') {
-    $errors[] = "El mensaje es obligatorio.";
+  if (empty($mensaje)) {
+    $errores[] = "El mensaje es obligatorio.";
   }
 
-  if (count($errors) > 0) {
-    // Mostrar errores simples (puedes adaptar esto a tu UI)
-    foreach ($errors as $error) {
-      echo "<p style='color:red;'>$error</p>";
-    }
-  } else {
-    // Todo validado correctamente: crear mensaje y mostrar alerta en JS
-    $alertMsg = "Gracias {$nombre} por contactarnos sobre {$asunto}. Te responderemos pronto.";
-    echo "<script type='text/javascript'>
-                alert(" . json_encode($alertMsg, JSON_UNESCAPED_UNICODE) . ");
-              </script>";
-    // Aquí podrías continuar con el envío de correo, guardado en BBDD, etc.
+  if (count($errores) === 0) {
+    $respuesta = "Gracias {$nombre} por contactarnos sobre {$asunto}. Te responderemos pronto.";
   }
 }
 ?>
@@ -45,9 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <!-- Metadatos básicos -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="Café Aromas - El mejor café artesanal del pueblo" />
+  <meta name="description" content="Café Aromas - El mejor café artesanal del pueblo" />
   <title>Café Aromas - Cafetería Artesanal</title>
 
   <!-- Vincular hoja de estilos externa -->
@@ -98,9 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             asegurar que cada taza esté perfectamente preparada.
           </p>
           <div class="mt-20 mb-20">
-            <img
-              src="https://cdn.pixabay.com/photo/2016/08/07/16/23/coffee-1576537_1280.jpg"
-              alt="Café artesanal"
+            <img src="https://cdn.pixabay.com/photo/2016/08/07/16/23/coffee-1576537_1280.jpg" alt="Café artesanal"
               class="img-responsive" />
           </div>
         </article>
@@ -157,9 +147,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
           calidad.
         </p>
         <div class="mt-20 mb-20">
-          <img
-            src="https://cdn.pixabay.com/photo/2021/01/08/06/32/cafe-5899078_1280.jpg"
-            alt="Sucursal Café Aromas"
+          <img src="https://cdn.pixabay.com/photo/2021/01/08/06/32/cafe-5899078_1280.jpg" alt="Sucursal Café Aromas"
             class="img-responsive" />
         </div>
       </section>
@@ -167,30 +155,37 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <!-- Formulario de contacto -->
       <section id="formulario" class="seccion">
         <h2>Formulario de contacto</h2>
-        <form id="contactoForm" action="index.php" method="post">
+
+        <!-- Mostrar errores -->
+        <?php if (count($errores) > 0):
+          foreach ($errores as $error): ?>
+            <p style="color:red;"><?= $error ?></p>
+          <?php endforeach;
+        endif; ?>
+
+        <!-- Respuesta de la petición POST -->
+        <input type="hidden" name="respuesta" id="respuesta" value="<?= $respuesta ?>">
+
+        <form action="" method="post">
           <div class="mb-20">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required />
+            <input type="text" id="nombre" name="nombre" value="<?= $nombre ?>" required />
           </div>
           <div class="mb-20">
             <label for="email">Correo electrónico:</label>
-            <input type="email" id="email" name="email" required />
+            <input type="email" id="email" name="email" value="<?= $email ?>" required />
           </div>
           <div class="mb-20">
             <label for="asunto">Asunto:</label>
             <select id="asunto" name="asunto">
-              <option value="soporte">Soporte</option>
-              <option value="ventas">Ventas</option>
-              <option value="otros">Otros</option>
+              <option value="soporte" <?= $asunto === 'soporte' ? 'selected' : '' ?>>Soporte</option>
+              <option value="ventas" <?= $asunto === 'ventas' ? 'selected' : '' ?>>Ventas</option>
+              <option value="otros" <?= $asunto === 'otros' ? 'selected' : '' ?>>Otros</option>
             </select>
           </div>
           <div class="mb-20">
             <label for="mensaje">Mensaje:</label>
-            <textarea
-              id="mensaje"
-              name="mensaje"
-              rows="4"
-              required></textarea>
+            <textarea id="mensaje" name="mensaje" rows="4" required><?= $mensaje ?></textarea>
             <p id="contador">0 caracteres</p>
           </div>
           <button type="submit" class="btn-submit">Enviar</button>
