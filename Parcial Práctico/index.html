@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gorra Red Bull Racing</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="img/logo.png" alt="Red Bull Racing" />
+        <span>Red Bull Racing</span>
+      </div>
+      <button id="btn-menu">☰</button>
+      <ul id="menu" class="menu">
+        <li><a href="#precios">Precios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero">
+      <h1>Gorra Red Bull Racing</h1>
+      <p>Viste tu pasión por la velocidad.</p>
+      <img src="img/gorra.jpg" alt="Gorra" />
+    </section>
+
+    <section id="precios">
+      <h2>Precios</h2>
+      <div class="preciobox">
+        <div class="precio-card">
+          <h3>Clásico</h3>
+          <p class="antes">$50.000</p>
+          <p class="final" id="precio1">$50.000</p>
+          <button class="btn-desc" data-precio="50000">Aplicar</button>
+        </div>
+        <div class="precio-card">
+          <h3>Edición Especial</h3>
+          <p class="antes">$80.000</p>
+          <p class="final" id="precio2">$80.000</p>
+          <button class="btn-desc" data-precio="80000">Aplicar</button>
+        </div>
+      </div>
+      <div class="descuento">
+        <label for="input-desc">Descuento %</label>
+        <input type="number" id="input-desc" min="0" max="100" />
+        <button id="calcular">Calcular</button>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <form id="form-contacto" action="formulario.php" method="POST" novalidate>
+        <div class="campo">
+          <label for="nombre">Nombre*</label>
+          <input type="text" id="nombre" name="nombre" required />
+          <small class="error" id="error-nombre"></small>
+        </div>
+        <div class="campo">
+          <label for="email">Email*</label>
+          <input type="email" id="email" name="email" required />
+          <small class="error" id="error-email"></small>
+        </div>
+        <div class="campo">
+          <label for="asunto">Asunto*</label>
+          <input type="text" id="asunto" name="asunto" required />
+          <small class="error" id="error-asunto"></small>
+        </div>
+        <div class="campo">
+          <label for="mensaje">Mensaje*</label>
+          <textarea id="mensaje" name="mensaje" rows="3" required></textarea>
+          <small class="error" id="error-mensaje"></small>
+        </div>
+        <button type="submit" class="btn-enviar">Enviar</button>
+      </form>
+      <div id="respuesta-php"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Red Bull Racing</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
